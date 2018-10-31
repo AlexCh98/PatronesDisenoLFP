@@ -61,4 +61,4 @@ La programación por niveles o capas es un modelo de desarrollo software en el q
 * Bad, because Perdidad de eficiencia y trabajo innecesario por parte de capas mas internas
 
 ## Links:
-* [ADR-0005](0005-Patron-Ojo-Halcon.md)
+* [ADR-0005](0005-Patrón-Ojo-Halcon.md)
