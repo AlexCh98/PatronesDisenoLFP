@@ -8,17 +8,17 @@
 ## Context and Problem Statement
 
 Vamos a tener una serie de cámaras situadas en el campo y se tendrá acceso a estas cámaras desde una sala en la que se mostraran todas las imágenes de las diferentes cámaras, se estará “emitiendo” a tiempo real en esta sala
-Además se proporcionará al rarbitro a pie de campo una imagen sobre la que el pueda tomar una decisión een un determinado momento
+Además se proporcionará al rarbitro a pie de campo una imagen sobre la que el pueda tomar una decisión en un determinado momento.
 
 ## Considered Options
 
 * Tuberías y filtros (Pipes and filtes)
 * Modelo-Vista-Controlador
+* Arquitectura de 3 niveles
 
 ## Decision Outcome
 
-Chosen option: "Modelo Vista-Controlador", because queremos realizar una separacion entre lo que ve el arbitro y los que ven los arbitros de sala,
-los arbitros de sala acuaran como controlador y seleccionan la vista visible al arbitro de a campo.
+Chosen option: "Arquitectura de 3 niveles", because queremos realizar una separacion entre lo que ve el arbitro y los que ven los arbitros de sala y para ello usaremos la capa de interfaz de usuario, la de negocio y el acceso a datos.
 
 
 ## Pros and Cons of the Options
@@ -50,6 +50,15 @@ Modelo-vista-controlador (MVC) es un patrón de arquitectura de software, que se
 * Bad, because Requiere la existencia de una arquitectura inicial sobre la que construir clases e interfaces.
 * Bad, becasue Es orientada a objetos por lo que su implentación sumamente costosa y díficil en lenguajes no POO.
 
+### Arquitectura de tres niveles
+
+La programación por niveles o capas es un modelo de desarrollo software en el que el objetivo primordial es la separación (desacoplamiento) de las partes que componen un sistema software. Tres niveles: capa de presentación, capa negocio, capa de datos.
+
+* Good, because Reutilización de niveles
+* Good, because Permite la estandarización
+* Good, because Las dependencias se limitan a intracapas --> contencion de cambios a una o pocas capas
+* Bad, because A veces no se logra la contención del cambio y se requiere una casacada de cambios entre varias capas
+* Bad, because Perdidad de eficiencia y trabajo innecesario por parte de capas mas internas
 
 ## Links:
 * [ADR-0005](0005-Patron-Ojo-Halcon.md)
