@@ -9,7 +9,7 @@ This log lists the architectural decisions for Gestión del Sistema Informatico 
 - [ADR-0002](0002-Patron-Sistemas-Estadio.md) - Elección de patrón para el sistema del estadio
 - [ADR-0003](0003-Patron-Gestion-Entrada-Tornos.md) - Elección de patrón para la gestión de entradas y tornos
 - [ADR-0004](0004-Patrón-VAR.md) - Elección de patrón para el sistema VAR
-- [ADR-0005](0005-Patrón-Ojo-Halcon.md) - Elecci�n de patr�n para el Ojo Halc�n
+- [ADR-0005](0005-Patrón-Ojo-Halcon.md) - Elección de patrón para el Ojo Halcón
 - [ADR-0006](0006-Patrón-Marauder.md) - Elección de patrón para el subsistema Marauder
 
 <!-- adrlogstop -->
