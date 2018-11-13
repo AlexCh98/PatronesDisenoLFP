@@ -29,6 +29,7 @@ Este patrón permite solicitar una operación a un objeto sin conocer realmente 
 * Good, because permite hacer colas de peticiones.
 * Good, because puede hacerse cargo de los distintos tipos de peticiones que le lleguen del Pipe.
 * Good, because no necesita saber el emisor de la petición.
+* Good, because permite registrar los cambios de manera que se puedan volver a aplicar en caso de una caída del sistema.
 * Bad, because puede necesitar muchas clases si se tienen muchas peticiones distintas.
 
 ### Patrón Template Method
