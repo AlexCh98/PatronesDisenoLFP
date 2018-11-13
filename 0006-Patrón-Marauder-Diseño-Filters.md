@@ -13,28 +13,27 @@ Queremos elegir un patrón de diseño para los Filters. Los Filters analizan las
 ## Considered Options
 
 * Patrón Command
-
+* Patrón Template Method
 
 ## Decision Outcome
 
-Chosen option: "Patrón Command", because el patrón Strategy permite navegar distintos sitios web y necesita el builder para hacer instancias de Denuncias.
+Chosen option: "Patrón Command", because tiene más sinergia con los Pipes.
 
 
 ## Pros and Cons of the Options
 
-### Patrón Strategy
+### Patrón Command
 
-El patrón permite adaptar la estrategia que tiene la IA dependiendo de si está buscando en Facebook, Twitter u otra página de internet.
+Este patrón permite solicitar una operación a un objeto sin conocer realmente el contenido de esta operación, ni el receptor real de la misma. Para ello se encapsula la petición como un objeto, con lo que además facilita la parametrización de los métodos.
 
-* Good, because optimiza el análisis de las páginas web.
-* Good, because se puede pasar datos al algoritmo desde el objeto que contiene a Strategy.
-* Good, because aumenta la cohesión de la IA.
-* Bad, because tiene menor eficiencia al aumentar el número de objetos creados.
+* Good, because permite hacer colas de peticiones.
+* Good, because puede hacerse cargo de los distintos tipos de peticiones que le lleguen del Pipe.
+* Good, because no necesita saber el emisor de la petición.
+* Bad, because puede necesitar muchas clases si se tienen muchas peticiones distintas.
 
-### Patrón Builder
+### Patrón Template Method
 
-El patrón Builder separa la construcción de un objeto complejo de su representación de modo que con un sólo proceso de construcción se creen distintos tipos de representaciones. Lo usará para generar las denuncias
+El patrón Template Method crea el esqueleto de un algoritmo separando cada paso u operación de este en un objeto distinto.
 
-* Good, because permite crear distintos tipos de denuncias dependiendo de si vienen de Twitter, Facebook u otra página.
-* Good, because reduce el acoplamiento.
-* Good, because mayor control en el proceso de construcción de un objeto.
+* Good, because optimiza los recursos al poder saltarse pasos.
+* Bad, because difícil de depurar y mantener porque hay que tener en cuenta todas las combinaciones de pasos.
