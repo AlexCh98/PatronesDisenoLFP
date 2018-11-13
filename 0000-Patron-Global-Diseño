@@ -28,13 +28,13 @@ Chosen option: "Object Pool", because favorece la reutilización de objetos, ade
 
 ### Object Pool
 
-La Arquitectura dirigida por eventos es un patrón de arquitectura software que promueve la producción, detección, consumo de, y reacción a eventos. Un evento puede ser definido como un cambio significativo en un estado
+Un patrón de diseño object pool puede resultar útil cuando es necesario trabajar con un gran número de objetos que son particularmente costosos para instanciar y cada objeto solo se necesita durante un corto período de tiempo.
 
-* Good, because Simplicidad
-* Good, because Modularidad una sola modalidad para eventos diversos
-* Bad, because Posibilidad de desborde
-* Bad, because Potencial imprevisión de escalabilidad
-* Bad, because Mal soporte de recuperacion en caso de fallo parcial
+* Good, because Reduce el coste de instancia a una sola vez.
+* Good, because Se puede controlar el numero de instancias a un servicio.
+* Good, because Solo se instancia el servicio una sola vez.
+* Bad, because Si llegas al maximo de servicios puede desbordar o generar excepciones.
+* Bad, because Necesita una implementación extra para cuando el pool esta vacío.
 
 ### Abstract Factory
 
