@@ -1,32 +1,30 @@
 # Elección de patrón para el sistema global
 
-* Status: Decidido 
+* Status: Pendiente 
 * Deciders: Alejandro Checa Folguera, Ivan Martín Sanz, Jose Luis Lavado Sánchez
-* Date: 2018-10-31 
+* Date: 2018-11-13 
 
 
 ## Context and Problem Statement
 
-Tenemos varias interfaces que tienen que ser accedidas e intercomunicadas.Buscamos un patrón de arquitectura que nos permita enlazar todos los subsistemas en un sistema global.
+Buscamos un patron para el diseño de la pagina y las aplicaciones externas para usuarios
 
 
 
 ## Considered Options
 
-* Arquitectura dirigida por eventos
-* Arquitectura de tres niveles
+* Composite
+* Module
 * Modelo-Vista-Controlador
-* Arquitectura orientada a servicios(SOA)
 
 
 ## Decision Outcome
 
-Chosen option: "Arquitectura orientada a servicios", because favorece la reutilización de código además del desarrollo en paralelo, fácil mantenimiento y mayor escalabilidad. 
-
+"Modelo-Vista-Controlador", because a pesar de que se tarda más en la planificación inicial, permite una mejor adaptación a distintos entornos y sistemas (implementación modular), además de que tiene una mayor escalabilidad.
 
 ## Pros and Cons of the Options
 
-### Arquitectura dirigida por eventos
+### Composite
 
 La Arquitectura dirigida por eventos es un patrón de arquitectura software que promueve la producción, detección, consumo de, y reacción a eventos. Un evento puede ser definido como un cambio significativo en un estado
 
@@ -36,7 +34,7 @@ La Arquitectura dirigida por eventos es un patrón de arquitectura software que 
 * Bad, because Potencial imprevisión de escalabilidad
 * Bad, because Mal soporte de recuperacion en caso de fallo parcial
 
-### Arquitectura de tres niveles
+### Module
 
 La programación por niveles o capas es un modelo de desarrollo software en el que el objetivo primordial es la separación (desacoplamiento) de las partes que componen un sistema software. Tres niveles: capa de presentación, capa negocio, capa de datos.
 
@@ -57,17 +55,6 @@ Modelo-vista-controlador (MVC) es un patrón de arquitectura de software, que se
 * Bad, because Requiere la existencia de una arquitectura inicial sobre la que construir clases e interfaces.
 * Bad, becasue Es orientada a objetos por lo que su implentación sumamente costosa y díficil en lenguajes no POO. 
 
-### Arquitectura orientada a servicios(SOA)
-
-La Arquitectura Orientada a Servicios es un patrón de aruitectura de software apoyada en la orientación a servicios. La orientación a servicios es una forma de pensar en servicios, su construcción y sus resultados. Un servicio es una representación lógica de una actividad de negocio que tiene un resultado de negocio específico
-
-* Good, because Reduce el nivel de acoplamiento --> Facil testeo y mantenimiento 
-* Good, because Definición de seguridad mas clara
-* Good, because Favorece reutilización, desarrollo en paralelo, mantenimiento y escalabilidad
-* Good, because Permite mapeo directo entre procesos y los sistemas a la vez que la interoperabilidad 
-* Bad, because Dependencia de la implementación de estadares
-* Bad, because Dificil y costoso cumplir con los protocolos
-* Bad, becasue A la hora de actualizar un sevicio debe evaluarse previamente el impacto y tener sumo cuidado con la implementación
 
 
 ## Links:
