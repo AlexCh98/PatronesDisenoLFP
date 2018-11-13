@@ -12,18 +12,18 @@ Queremos elegir un patrón de diseño para el Data Sink. Almacenará las denunci
 
 ## Considered Options
 
-* Patrón Proxy Remoto
+* Patrón Proxy Virtual
 
 ## Decision Outcome
 
-Chosen option: "Patrón Proxy Remoto", because único que permite almacenar de forma eficiente las denuncias.
+Chosen option: "Patrón Proxy Virtual", because único que permite almacenar de forma eficiente las denuncias.
 
 
 ## Pros and Cons of the Options
 
-### Patrón Proxy Remoto
+### Patrón Proxy Virtual
 
-Este patrón Proporciona un representante de otro objeto para controlar el acceso a éste.
+Este patrón proporciona un representante de otro objeto para controlar el acceso a éste.
 
 * Good, becuase consume pocos recursos.
 * Good, because evita la duplicación de objetos.
