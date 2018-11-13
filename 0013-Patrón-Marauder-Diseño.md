@@ -1,47 +1,42 @@
-# Elección de patrón para el subsistema Marauder
+# Elección de patrón de diseño para Pipes de Marauder
 
-* Status: Decidida 
+* Status: En evaluación
 * Deciders: Daniel Carmona Pedrajas
-* Date: 2018-10-31 
+* Date: 2018-11-13 
 
 
 ## Context and Problem Statement
 
-Queremos elegir un patrón arquitectónico para el sistema Marauder cuyo objetivo principal analizar Internet en busca de cualquier web que esté realizando un streaming ilegal o que
-comparta enlaces a emisiones ilegales de los partidos de fútbol comparando con la BBDD de fotogramas que tiene Marauder los fotorgramas de las páginas analizadas
+Hemos elegido el patrón arquitectónico Pipes & Filters para el subsistema antipiratería Marauder.
+Queremos elegir un patrón de diseño para los Pipes que contienen la IA de Marauder. Los Pipes tienen que crear posibles denuncias que pasarán al Filter.
 
 
 ## Considered Options
 
-* Patrón por capas
-* Patrón Pipe & Filter
+* Patrón Builder
+* Patrón Strategy
 
 
 ## Decision Outcome
 
-Chosen option: "Patrón Pipe & Filter", because puede detectar varias páginas ilegales a la vez.
+Chosen option: "Patrón Strategy" + "Patrón Builder", because el patrón Strategy permite navegar distintos sitios web y necesita el builder para hacer instancias de Denuncias.
 
 
 ## Pros and Cons of the Options
 
-### Patrón por capas
+### Patrón Strategy
 
-El patrón por capas crea varios servicios en cada capa que pueden ser utilizados por el sistema superior
+El patrón permite adaptar la estrategia que tiene la IA dependiendo de si está buscando en Facebook, Twitter u otra página de internet.
 
-* Good, because el usuario decide cuántas IAs lanzar.
-* Good, because permite la reutilización de niveles.
-* Good, because seguridad por las jerarquías.
-* Bad, because solo hay una base de datos que analizar y se ralentiza cuando hay muchas IAs comparando.
-* Bad, because lento porque necesita analizar todos los fotogramas.
-* Bad, because difícil implementar la IA.
+* Good, because optimiza el análisis de las páginas web.
+* Good, because se puede pasar datos al algoritmo desde el objeto que contiene a Strategy.
+* Good, because aumenta la cohesión de la IA.
+* Bad, because tiene menor eficiencia al aumentar el número de objetos creados.
 
-### Patrón Pipe & Filter
+### Patrón Builder
 
-El patrón Pipe & Filter permite generar flujos de datos en tiempo real.
+El patrón Builder separa la construcción de un objeto complejo de su representación de modo que con un sólo proceso de construcción se creen distintos tipos de representaciones. Lo usará para generar las denuncias
 
-* Good, because permite analizar varias páginas en paralelo.
-* Good, because permite que los filtros actuen concurrentemente al generar datos de salida antes de leer todos los de entrada.
-* Good, because rápido porque no hace falta analizar todos los fotogramas detectados por la IA.
-* Good, because guarda todas las páginas analizadas en el Data Sink. 
-* Bad, because necesita un filtro (BBDD) por pipe (IAs) por lo que necesita gran espacio de almacenamiento.
-* Bad, because dificil implementar la IA.
+* Good, because permite crear distintos tipos de denuncias dependiendo de si vienen de Twitter, Facebook u otra página.
+* Good, because reduce el acoplamiento.
+* Good, because mayor control en el proceso de construcción de un objeto.
