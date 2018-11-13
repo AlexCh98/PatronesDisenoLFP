@@ -26,17 +26,15 @@ Buscamos un patron para el diseño de la pagina y las aplicaciones externas para
 
 ### Composite
 
-La Arquitectura dirigida por eventos es un patrón de arquitectura software que promueve la producción, detección, consumo de, y reacción a eventos. Un evento puede ser definido como un cambio significativo en un estado
+Sirve para construir objetos complejos a partir de otros más simples y similares entre sí, gracias a la composición recursiva y a una estructura en forma de árbol.
 
-* Good, because Simplicidad
-* Good, because Modularidad una sola modalidad para eventos diversos
-* Bad, because Posibilidad de desborde
-* Bad, because Potencial imprevisión de escalabilidad
-* Bad, because Mal soporte de recuperacion en caso de fallo parcial
+* Good, because simplifica el código del cliente que interactua con estructuras más complejas.
+* Good, because permite añadir facilmente nuevos tipos de componentes.
+* Bad, because crea diseños de clases demasiado genéricos.
 
 ### Module
 
-La programación por niveles o capas es un modelo de desarrollo software en el que el objetivo primordial es la separación (desacoplamiento) de las partes que componen un sistema software. Tres niveles: capa de presentación, capa negocio, capa de datos.
+Es un patrón de diseño utilizado para implementar el concepto de módulos de software definidos por el paradigma de programación modular, en un lenguaje de programación que no lo soporta, o lo soporta parcialmente.Util dado que el MVC necesitwa programacion orientada a objetos.
 
 * Good, because Reutilización de niveles
 * Good, because Permite la estandarización
