@@ -13,15 +13,14 @@ Tenemos varias interfaces que tienen que ser accedidas e intercomunicadas.Buscam
 
 ## Considered Options
 
-* Arquitectura dirigida por eventos
-* Arquitectura de tres niveles
-* Modelo-Vista-Controlador
-* Arquitectura orientada a servicios(SOA)
+* Bridge
+* Adapter
+* Flyweight
 
 
 ## Decision Outcome
 
-Chosen option: "Arquitectura orientada a servicios", because favorece la reutilización de código además del desarrollo en paralelo, fácil mantenimiento y mayor escalabilidad. 
+Chosen option: "Flyweight", because 
 
 
 ## Pros and Cons of the Options
