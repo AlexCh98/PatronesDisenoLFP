@@ -12,27 +12,20 @@ Queremos elegir un patrón de diseño para el Data Sink. Almacenará las denunci
 
 ## Considered Options
 
-* Patrón Proxy
+* Patrón Proxy Remoto
 
 ## Decision Outcome
 
-Chosen option: "Patrón Proxy", because único que permite almacenar de forma eficiente las denuncias.
+Chosen option: "Patrón Proxy Remoto", because único que permite almacenar de forma eficiente las denuncias.
 
 
 ## Pros and Cons of the Options
 
-### Patrón Proxy
+### Patrón Proxy Remoto
 
-Este patrón permite solicitar una operación a un objeto sin conocer realmente el contenido de esta operación, ni el receptor real de la misma. Para ello se encapsula la petición como un objeto, con lo que además facilita la parametrización de los métodos.
+Este patrón Proporciona un representante de otro objeto para controlar el acceso a éste.
 
-* Good, because permite hacer colas de peticiones.
-* Good, because puede hacerse cargo de los distintos tipos de peticiones que le lleguen del Pipe.
-* Good, because no necesita saber el emisor de la petición.
-* Bad, because puede necesitar muchas clases si se tienen muchas peticiones distintas.
-
-### Patrón Template Method
-
-El patrón Template Method crea el esqueleto de un algoritmo separando cada paso u operación de este en un objeto distinto.
-
-* Good, because optimiza los recursos al poder saltarse pasos.
-* Bad, because difícil de depurar y mantener porque hay que tener en cuenta todas las combinaciones de pasos.
+* Good, becuase consume pocos recursos.
+* Good, because evita la duplicación de objetos.
+* Good, because facilita la comuncación con servidores.
+* Bad, because añade otra capa de abstracción lo que puede ser malo si se accede al código del objeto real desde un cliente y se modifica.
