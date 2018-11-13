@@ -1,15 +1,13 @@
-# Elección de patrón para la gestión de entradas y tornos
+# Elección de patrón de diseño para la implementación de al gestión de entradas y tornos
 
 * Status: Decidida 
 * Deciders: Lucas Gómez Torres
-* Date: 2018-10-31 
+* Date: 13-11-18 
 
 
 ## Context and Problem Statement
 
-Queremos elegir un patrón de diseño para programar  el sistema de gestión de entradas y el de tornos de entrada.
-
-
+Queremos elegir un patrón de diseño para la implementación del sistema de gestión de entradas y el de tornos de entrada.
 
 ## Considered Options
 
@@ -18,7 +16,9 @@ Queremos elegir un patrón de diseño para programar  el sistema de gestión de 
 
 ## Decision Outcome
 
-Chosen option: "Singleton", because para gestionar las entradas y el sistema de tornos va a ser muy útil  ya que va a ocurrir varios cambios significativos en un estado concreto, por ejemplo la entrada pasa de estado "se vende" a se ha "vendido", y los tornos de "sin abrir" a "abierto".
+Chosen option: "Abstract Factory", because debemos crear diferentes eventos, todos pertenecientes a la misma familia, sin diferenciar los eventos que provienen de los tornos y los que viene de las entradas, para tratarlos de una manera única el programador.
+El problema que intenta solucionar este patrón es el de crear diferentes familias de objetos.
+El patrón Abstract Factory está aconsejado cuando se prevé la inclusión de nuevas familias de productos, pero puede resultar contraproducente cuando se añaden nuevos productos o cambian los existentes, puesto que afectaría a todas las familias creadas.
 
 
 ## Pros and Cons of the Options 
@@ -48,19 +48,11 @@ Su intención consiste en garantizar que una clase solo tenga una instancia y pr
 ### Abstract Factory
 
 El  Abstract Factory es un patrón de diseño para el desarrollo de software.
-Debemos crear diferentes objetos, todos pertenecientes a la misma familia.
-El problema que intenta solucionar este patrón es el de crear diferentes familias de objetos.
-
 
 
 * Good, because aisla las clases de implementación: ayuda a controlar los objetos que se creen y encapsula la responsabilidad y el proceso de creación de objetos producto.
 * Good, because hace fácil el intercambio de familias de productos. Solo necesitaremos cambiar de factory.
 * Good, because fomenta la consistencia entre productos.
-
-
-
-
-
 
 * Bad, because soportar nuevas clases de productos es dificil porque su interfaz arregla el bloque que pueden ser creados.
 * Bad, because para añadir un nuevo producto, se requiere la implmentación de la interfaz y todos sus métodos.
