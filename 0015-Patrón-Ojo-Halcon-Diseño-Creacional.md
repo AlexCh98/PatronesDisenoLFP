@@ -1,4 +1,4 @@
-# Elección de patrón para el Ojo Halcón
+# Elección de patrón para prducir el evento del Ojo Halcón
 
 * Status: Pendiente 
 * Deciders: Israel Peñalver Sánchez
