@@ -20,53 +20,40 @@ Tenemos varias interfaces que tienen que ser accedidas e intercomunicadas.Buscam
 
 ## Decision Outcome
 
-Chosen option: "Flyweight", because 
+Chosen option: "Flyweight", because Reduce en gran cantidad el peso de los datos en un servidor, permitiendo así mejorar la velocidad en el tránsito de datos, permitiendo eliminar la redundancia cuando tenemos gran cantidad de objetos.
 
 
 ## Pros and Cons of the Options
 
-### Arquitectura dirigida por eventos
+### Bridge
 
-La Arquitectura dirigida por eventos es un patrón de arquitectura software que promueve la producción, detección, consumo de, y reacción a eventos. Un evento puede ser definido como un cambio significativo en un estado
+Es una técnica usada en programación para desacoplar una abstracción de su implementación, de manera que ambas puedan ser modificadas independientemente sin necesidad de alterar por ello la otra.
 
-* Good, because Simplicidad
-* Good, because Modularidad una sola modalidad para eventos diversos
-* Bad, because Posibilidad de desborde
-* Bad, because Potencial imprevisión de escalabilidad
-* Bad, because Mal soporte de recuperacion en caso de fallo parcial
+* Good, because desacopla interfaz e implementación.
+* Good, because mejora la extensibilidad.
+* Good, because esconde los detalles de la implementación a los clientes.
 
-### Arquitectura de tres niveles
 
-La programación por niveles o capas es un modelo de desarrollo software en el que el objetivo primordial es la separación (desacoplamiento) de las partes que componen un sistema software. Tres niveles: capa de presentación, capa negocio, capa de datos.
+### Adapter 
 
-* Good, because Reutilización de niveles
-* Good, because Permite la estandarización
-* Good, because Las dependencias se limitan a intracapas --> contencion de cambios a una o pocas capas
-* Bad, because A veces no se logra la contención del cambio y se requiere una casacada de cambios entre varias capas
-* Bad, because Perdidad de eficiencia y trabajo innecesario por parte de capas mas internas
+Convierte la interfaz de una clase en otra interfaz que el cliente espera. El adaptador permite a las clases trabajar juntas, lo que de otra manera no podría hacerse debido a sus interfaces incompatibles.
 
-### Modelo-Vista-Controlador
+* Good, because Permite compatibilidad entre interfaces.
+* Good, because Permite encapsular laas respuestas.
+* Bad, because Añade complejidad al diseño.
+* Bad, because Pierde caractersticas importantes si no se implementa con objetos y clases
+* Bad, because La version mas simple necesita programación orientada a objetos.
 
-Modelo-vista-controlador (MVC) es un patrón de arquitectura de software, que separa los datos y la lógica de negocio de una aplicación de su representación y el módulo encargado de gestionar los eventos y las comunicaciones. Para ello MVC propone la construcción de tres componentes distintos que son el modelo, la vista y el controlador.
+### Flyweight
 
-* Good, because Implementación modular 
-* Good, because Las vistas simpre están actualizadas.
+El patrón de dsieño estructural Flyweight sirve para eliminar o reducir la redundancia cuando tenemos gran cantidad de objetos que contienen información idéntica, además de lograr un equilibrio entre flexibilidad y rendimiento
+
+* Good, because Reduce en gran cantidad el peso de los datos en un servidor.
 * Good, because La modificación de una parte no afecta a las demás --> facil extensibilad y mantenimiento
-* Bad, because Mayor dedicación inicial en el desarrollo.
-* Bad, because Requiere la existencia de una arquitectura inicial sobre la que construir clases e interfaces.
-* Bad, becasue Es orientada a objetos por lo que su implentación sumamente costosa y díficil en lenguajes no POO. 
+* Bad, because Consume un poco más de tiempo para realizar las búsquedas.
+* Bad, because Se complica la codificación lo que puede redundar en el aumento en la aparición de errores.
+* Bad, becasue El cliente debe tener algún conocimiento de la implementación. Por esto, puede romper con la estructura cliente-servidor.
 
-### Arquitectura orientada a servicios(SOA)
-
-La Arquitectura Orientada a Servicios es un patrón de aruitectura de software apoyada en la orientación a servicios. La orientación a servicios es una forma de pensar en servicios, su construcción y sus resultados. Un servicio es una representación lógica de una actividad de negocio que tiene un resultado de negocio específico
-
-* Good, because Reduce el nivel de acoplamiento --> Facil testeo y mantenimiento 
-* Good, because Definición de seguridad mas clara
-* Good, because Favorece reutilización, desarrollo en paralelo, mantenimiento y escalabilidad
-* Good, because Permite mapeo directo entre procesos y los sistemas a la vez que la interoperabilidad 
-* Bad, because Dependencia de la implementación de estadares
-* Bad, because Dificil y costoso cumplir con los protocolos
-* Bad, becasue A la hora de actualizar un sevicio debe evaluarse previamente el impacto y tener sumo cuidado con la implementación
 
 
 ## Links:
