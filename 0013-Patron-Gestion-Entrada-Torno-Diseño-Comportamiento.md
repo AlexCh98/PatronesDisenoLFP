@@ -1,6 +1,6 @@
 # Elección de patrón de diseño para la implementación de al gestión de entradas y tornos
 
-* Status: Pendiente 
+* Status: Decidida 
 * Deciders: Lucas Gómez Torres
 * Date: 13-11-18 
 
@@ -12,57 +12,39 @@ Queremos elegir un patrón de diseño de comportamiento para la implementación 
 ## Considered Options
 
 * Chain of Responsibility
-* 
+* Iterator
 
 ## Decision Outcome
 
-Chosen option: "Facade", because se utiliza para proporcionar una interfaz unificada de alto nivel para un conjunto de clases en un subsistema, lo que permite una mayor facilidad de uso y Simplifica el acceso a dicho conjunto de clases, ya que el cliente sólo se comunica con ellas a través de una única interfaz.
-En definitiva que todos los eventos que se creen se organizen en una clase de alto nivel para que luego sea mas facil usarlas al estar comunicados con los clientes a través de una sola interfaz.
+Chosen option: "Chain of Responsability", because los eventos  que piden los respectivos clientes se van a poder controlar por los distintos manejadores que definiran una interfaz especifica para tratar las peticiones de los clientes. 
 
 ## Pros and Cons of the Options 
 
 
-### Proxy
+### Chain of Responsibility
 
- El patrón proxy es un patrón de diseño estructural que tiene como propósito proporcionar un intermediario de un objeto para controlar su acceso.
+ El patrón Chain of Responsibility es un patrón de comportamiento que evita acoplar el emisor de una petición a su receptor dando a más de un objeto la posibilidad de responder a una petición. Para ello, se encadenan los receptores y pasa la petición a través de la cadena hasta que es procesada por algún objeto.
 Dependiendo de la clase de proxy, el objeto proxy redirige las peticiones al objeto real que representa.
 
-* Good, because se tiene más Control: Podemos restringir acceso a usuarios y dar salida solamente al proxy.
-* Good, because usa filtros: Nuestro proxy puede denegar peticiones de algunos lugares.
-* Good, because son anónimos: Todos los usuarios se identificarán como uno solo entonces es difícil identificar cuál es cuál.
-* Good, because permite un número variable de instancias: Hace que sea fácil permitir mas de una instancia de la clase. Solo se necesitaría cambiar la operación que otorga acceso a la instancia del Singleton.
-* Good, because se introduce un nivel de indirección en el acceso al objeto, que permite al apoderado remoto ocultar el hecho de que el objeto reside en un espacio de direcciones distinto, al apoderado virtual realizar optimizaciones como la creación de objetos por demanda y al apoderado de protección y a las referencias “inteligentes” realizar tareas adicionales de vigilancia sobre el objeto al que se accede. No obstante todo esto puede resultar un inconveniente, por motivos de claridad e inteligibilidad del diseño.
-* Good, because facilita otra optimización, relacionada con la creación de objetos por demanda: la técnica de COPY-ON-WRITE, que sólo hace efectiva la copia de un objeto oneroso cuando el acceso a él es de escritura, no de lectura.
+* Good, because reduce el acoplamiento. El patrón libera a un objeto de tener que saber qué otro objeto maneja una petición. Ni el receptor ni el emisor se conocen explícitamente entre ellos, y un objeto de la cadena tampoco tiene que conocer la estructura de ésta. Por lo tanto, simplifica las interconexiones entre objetos. En vez de que los objetos mantengan referencias a todos los posibles receptores, sólo tienen una única referencia a su sucesor.
+* Good, because añade flexibilidad para asignar responsabilidades a objetos. Se pueden añadir o cambiar responsabilidades  entre objetos para tratar una petición modificando la cadena de ejecución en tiempo de ejecución. Esto se puede combinar con la herencia para especializar los manejadores estáticamente.
+* Good, because tanto el manejador como el cliente no saben lo que no está en sus manos saber. Tampoco saben de la estructura de la cadena en sí.
+* Good, because se sabe como llegar al primer eslabón y se sabe que llegará al último, pero no se sabe la implementación de por medio.
 
-
-
-* Bad, because almacenar las páginas y objetos que los usuarios solicitan puede suponer una violación de la intimidad para algunas personas.
-* Bad, because promociona el alto acoplamiento: Si hay algo que debe ser alto en la orientación a objetos es la cohesión y no el acoplamiento. El Singleton es instanciado directamente desde su propia clase promocionando el uso de métodos privados y estáticos. Esto acopla la clase que los use además de impedir el uso adecuado de inyección de dependencias.
-* Bad, because tiene una restricción de ejecuciones paralelas: Aunque un objetivo del Singleton sea la gestión de un recurso compartido esto restringe operar de forma paralela a la aplicación y lo transforma en un cuello de botella de operaciones seriales que no es recomendable cuando la demanda es alta.
+* Bad, because no garantiza la recepción. Dado que las peticiones no tienen un receptor explícito, no hay garantías de que sean manejadas. La petición puede alcanzar el final de la cadena sin haber sido procesada.
 
 
 
 
+### Iterator
 
+El patrón Iterador es un mecanismo de acceso a los elementos que constituyen una estructura de datos para la utilización de estos sin exponer su estructura interna.
 
-
-
-### Facade
-
-El  facade es un patrón de diseño estructural que viene  motivado por la necesidad de estructurar un entorno de programación y reducir su complejidad con la división en subsistemas, minimizando las comunicaciones y dependencias entre estos.
-
-Los clientes que se comunican con el subsistema enviando peticiones al objeto Fachada, el cual las reenvía a los objetos apropiados del subsistema.
-Los objetos del subsistema realizan el trabajo final, y la fachada hace algo de trabajo para pasar de su interfaz a las del subsistema.
-Los clientes que usan la fachada no tienen que acceder directamente a los objetos del subsistema.
-
-
-* Good, because para modificar las clases de los subsistemas, sólo hay que realizar cambios en la interfaz/fachada, y los clientes pueden permanecer ajenos a ello. Además, y como se mencionó anteriormente, los clientes no necesitan conocer las clases que hay tras dicha interfaz.
-* Good, because al separar al cliente de los componentes del subsistema, se reduce el número de objetos con los que el cliente trata, facilitando así el uso del subsistema.
-* Good, because se promueve un acoplamiento débil entre el subsistema y sus clientes, eliminándose o reduciéndose las dependencias.
-* Good, because no existen obstáculos para que las aplicaciones usen las clases del subsistema que necesiten. De esta forma podemos elegir entre facilidad de uso y generalidad.
-
-* Bad, because varios clientes necesiten acceder a subconjuntos diferentes de la funcionalidad que provee el sistema, podrían acabar usando sólo una pequeña parte de la fachada, por lo que sería conveniente utilizar varias fachadas más específicas en lugar de una única global.
-* Bad, because se tiene considerar el caso en que varios clientes necesiten acceder a subconjuntos diferentes de la funcionalidad que provee el sistema, podrían acabar usando sólo una pequeña parte de la fachada, por lo que sería conveniente utilizar varias fachadas más específicas en lugar de una única global.
+* Good, because Permite recorrer las acciones sin conocer la organización.
+* Good, because Perimite filtrar las acciones a realizar cambiando la implementacion.
+* Good, because Simplifica el codigo de las colecciones de objetos pues la iteracciones van en el Iterator
+* Bad, because Mayor dedicación inicial en el desarrollo.
+* Bad, because Necisita estar acoplado con colecciones e iterador.
 
 
 
