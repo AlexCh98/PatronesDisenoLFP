@@ -11,13 +11,11 @@ Vamos a elegir un patrón para resolver el problema de detectar cuando la pelota
 
 ## Considered Options
 
-* Patrón por eventos
-* Modelo-Vista-Controlador
-* Patrón Cliente-Servidor
+* Singleton
 
 ## Decision Outcome
 
-Chosen option: "Patrón por eventos", because optamos por la simplicidad de esta arquitectura y que el arbitro pueda tomar inminentemente la decision en base al evente sucedido.
+Chosen option: "Singleton", because optamos por la simplicidad de esta arquitectura y que el arbitro pueda tomar inminentemente la decision en base al evente sucedido.
 
 
 ## Pros and Cons of the Options
