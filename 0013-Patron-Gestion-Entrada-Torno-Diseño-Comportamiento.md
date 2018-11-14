@@ -7,12 +7,12 @@
 
 ## Context and Problem Statement
 
-Queremos elegir un patrón de diseño estructural para la implementación del sistema de gestión de entradas y el de tornos de entrada.
+Queremos elegir un patrón de diseño de comportamiento para la implementación del sistema de gestión de entradas y el de tornos de entrada y ver como se relacionan los objetos y las clases.
 
 ## Considered Options
 
-* Proxy
-* Facade
+* Chain of Responsibility
+* 
 
 ## Decision Outcome
 
