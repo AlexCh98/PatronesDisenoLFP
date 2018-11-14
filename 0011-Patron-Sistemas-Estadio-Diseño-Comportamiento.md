@@ -1,4 +1,5 @@
-# Elección de patrón para el sistema de Entradas y Usuario????
+# Elección de patrón de comportamiento para el sistema del estadio.
+
 
 * Status: Decidido 
 * Deciders: Alejandro Checa Folguera, Ivan Martín Sanz, Jose Luis Lavado Sánchez
@@ -20,7 +21,7 @@ Tenemos varias interfaces que tienen que ser accedidas e intercomunicadas.Buscam
 
 ## Decision Outcome
 
-Chosen option: "Command", because 
+Chosen option: "Command", because Reduce en gran cantidad el peso de los datos en un servidor, permitiendo así mejorar la velocidad en el tránsito de datos, permitiendo eliminar la redundancia cuando tenemos gran cantidad de objetos.
 
 
 ## Pros and Cons of the Options
