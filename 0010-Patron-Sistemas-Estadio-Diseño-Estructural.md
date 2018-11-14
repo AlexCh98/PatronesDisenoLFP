@@ -1,4 +1,4 @@
-# Elección de patrón para el sistema global
+# Elección de patrón estructural para el sistema global
 
 * Status: Decidido 
 * Deciders: Alejandro Checa Folguera, Ivan Martín Sanz, Jose Luis Lavado Sánchez
