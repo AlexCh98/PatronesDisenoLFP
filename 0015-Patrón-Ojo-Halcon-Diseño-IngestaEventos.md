@@ -11,22 +11,18 @@ Vamos a elegir un patrón para resolver el problema como hacer llegar al arbitro
 
 ## Considered Options
 
-* Facade
+* Facade (FACHADA)
 * Flyweight
 
 ## Decision Outcome
 
-Chosen option: "Singleton", because optamos por la simplicidad de esta arquitectura y que el arbitro pueda tomar inminentemente la decision en base al evente sucedido.
-
+Chosen option: "Facade", because proporciona una interfaz simple para un subsistema complejo, una interfaz unificada de alto nivel que, representando a todo un subsistema, facilita su uso.
 
 ## Pros and Cons of the Options
 
 ### Facade
 
-Las arquitecturas dirigidas por eventos (EDA Event-driven Architectures) se
-basan en la detección, consumo y reacción a eventos.
-Un evento representa un cambio significativo en el estado de un sistema.
-Los eventos se transmiten entre sistema poco acoplados (“loosely coupled”) mediante mensajes.
+El patrón viene motivado por la necesidad de estructurar un entorno de programación y reducir su complejidad con la división en subsistemas, minimizando las comunicaciones y dependencias entre éstos
 
 
 * Good, because Simplicidad
@@ -36,27 +32,15 @@ Los eventos se transmiten entre sistema poco acoplados (“loosely coupled”) m
 * Bad, because Pobre comprensibilidad
 * Bad, because No hay mucho soporte de recuperacón en caso de fallo parcial
 
-
 ### Flyweight
 
-Modelo-vista-controlador (MVC) es un patrón de arquitectura de software, que separa los datos y la lógica de negocio de una aplicación de su representación y el módulo encargado de gestionar los eventos y las comunicaciones. Para ello MVC propone la construcción de tres componentes distintos que son el modelo, la vista y el controlador.
+El patrón de dsieño estructural Flyweight sirve para eliminar o reducir la redundancia cuando tenemos gran cantidad de objetos que contienen información idéntica, además de lograr un equilibrio entre flexibilidad y rendimiento
 
-* Good, because Implementación modular 
-* Good, because Las vistas simpre están actualizadas.
+* Good, because Reduce en gran cantidad el peso de los datos en un servidor.
 * Good, because La modificación de una parte no afecta a las demás --> facil extensibilad y mantenimiento
-* Bad, because Mayor dedicación inicial en el desarrollo.
-* Bad, because Requiere la existencia de una arquitectura inicial sobre la que construir clases e interfaces.
-* Bad, becasue Es orientada a objetos por lo que su implentación sumamente costosa y díficil en lenguajes no POO.
-
-### Patrón Cliente-Servidor
-
-Se trata del modelo más utilizado en Internet. Los clientes acceden a datos y aplicaciones en los servidores. Hay C/S distribuidos (redes peer-to-peer). Peticiones asíncronas y respuestas a eventos
-
-* Good, because Centralización del control. 
-* Good, because Facil mantenimiento.
-* Good, because Escalabilidad, se pueden aumentar los clientes.
-* Bad, because Robustez.
-* Bad, because Congestión del tráfico.
+* Bad, because Consume un poco más de tiempo para realizar las búsquedas.
+* Bad, because Se complica la codificación lo que puede redundar en el aumento en la aparición de errores.
+* Bad, becasue El cliente debe tener algún conocimiento de la implementación. Por esto, puede romper con la estructura cliente-servidor.
 
 ## Links:
 * [ADR-0004](0004-Patrón-VAR.md)
