@@ -9,6 +9,7 @@
 
 Vamos a tener una serie de cámaras situadas en el campo y se tendrá acceso a estas cámaras desde una sala en la que se mostraran todas las imágenes de las diferentes cámaras, se estará “emitiendo” a tiempo real en esta sala
 Además se proporcionará al rarbitro a pie de campo una imagen sobre la que el pueda tomar una decisión en un determinado momento.
+Vamos a tomar la decision sobre que patron de diseño utilizar para resolver este problema.
 
 ## Considered Options
 
@@ -18,7 +19,7 @@ Además se proporcionará al rarbitro a pie de campo una imagen sobre la que el 
 
 ## Decision Outcome
 
-Chosen option: "Arquitectura de 3 niveles", because queremos realizar una separacion entre lo que ve el arbitro y los que ven los arbitros de sala y para ello usaremos la capa de interfaz de usuario, la de negocio y el acceso a datos.
+Chosen option: "Observer", because nos beneficiaremos de el acoplamiento abstracto entre el objeto y el observador. Y ademas podremos un observador concreto como sería el arbitro de campo.
 
 
 ## Pros and Cons of the Options
