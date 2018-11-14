@@ -1,4 +1,4 @@
-# Elección de patrón para el sistema global
+# Elección de patrón creacional para la aplicación de usuario.
 
 * Status: Pendiente 
 * Deciders: Alejandro Checa Folguera, Ivan Martín Sanz, Jose Luis Lavado Sánchez
