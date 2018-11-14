@@ -11,7 +11,8 @@ Vamos a elegir un patrón para resolver el problema de detectar cuando la pelota
 
 ## Considered Options
 
-* Singleton
+* Facade
+* Flyweight
 
 ## Decision Outcome
 
