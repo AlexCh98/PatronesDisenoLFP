@@ -1,4 +1,4 @@
-# Elección de patrón de diseño para la implementación de al gestión de entradas y tornos
+# Elección de patrón de diseño creaccional para la implementación de al gestión de entradas y tornos
 
 * Status: Decidida
 * Deciders: Lucas Gómez Torres
@@ -37,12 +37,6 @@ Su intención consiste en garantizar que una clase solo tenga una instancia y pr
 * Bad, because tiene una cierta dificultad para realizar testing: Un Singleton es como una valor de variable global. Lo global y la orientación a objeto no son buenos amigos ya que introduce un “estado persistente”, es decir valores que se mantienen siempre dificultando el uso de objeto de reemplazo(mock) en test.
 * Bad, because promociona el alto acoplamiento: Si hay algo que debe ser alto en la orientación a objetos es la cohesión y no el acoplamiento. El Singleton es instanciado directamente desde su propia clase promocionando el uso de métodos privados y estáticos. Esto acopla la clase que los use además de impedir el uso adecuado de inyección de dependencias.
 * Bad, because tiene una restricción de ejecuciones paralelas: Aunque un objetivo del Singleton sea la gestión de un recurso compartido esto restringe operar de forma paralela a la aplicación y lo transforma en un cuello de botella de operaciones seriales que no es recomendable cuando la demanda es alta.
-
-
-
-
-
-
 
 
 ### Abstract Factory
