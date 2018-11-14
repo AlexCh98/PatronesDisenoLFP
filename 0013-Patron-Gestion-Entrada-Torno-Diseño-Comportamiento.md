@@ -1,4 +1,4 @@
-# Elección de patrón de diseño para la implementación de al gestión de entradas y tornos
+# Elección de patrón de diseño comportamiento  para la implementación de al gestión de entradas y tornos
 
 * Status: Decidida 
 * Deciders: Lucas Gómez Torres
@@ -34,8 +34,6 @@ Dependiendo de la clase de proxy, el objeto proxy redirige las peticiones al obj
 * Bad, because no garantiza la recepción. Dado que las peticiones no tienen un receptor explícito, no hay garantías de que sean manejadas. La petición puede alcanzar el final de la cadena sin haber sido procesada.
 
 
-
-
 ### Iterator
 
 El patrón Iterador es un mecanismo de acceso a los elementos que constituyen una estructura de datos para la utilización de estos sin exponer su estructura interna.
@@ -45,8 +43,6 @@ El patrón Iterador es un mecanismo de acceso a los elementos que constituyen un
 * Good, because Simplifica el codigo de las colecciones de objetos pues la iteracciones van en el Iterator
 * Bad, because Mayor dedicación inicial en el desarrollo.
 * Bad, because Necisita estar acoplado con colecciones e iterador.
-
-
 
 
 ## Links:
