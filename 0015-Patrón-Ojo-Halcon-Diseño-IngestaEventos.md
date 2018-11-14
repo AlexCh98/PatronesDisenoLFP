@@ -1,13 +1,13 @@
-# Elección de patrón para el Ojo Halcón
+# Elección de patrón de diseño para la Ingesta de Eventos de Ojo de Halcón
 
 * Status: Pendiente 
 * Deciders: Israel Peñalver Sánchez
-* Date: 2018-10-31
+* Date: 2018-11-14
 
 
 ## Context and Problem Statement
 
-Vamos a elegir un patrón para resolver el problema de detectar cuando la pelota ha traspasado la linea de gol exactamente y asi poder tomar la decision de si se da por válisdo un gol o no.
+Vamos a elegir un patrón para resolver el problema como hacer llegar al arbitro el mensaje correspondiente una vez que el actor (el balón), genere un evento.
 
 ## Considered Options
 
@@ -21,7 +21,7 @@ Chosen option: "Singleton", because optamos por la simplicidad de esta arquitect
 
 ## Pros and Cons of the Options
 
-### Patrón por Eventos
+### Facade
 
 Las arquitecturas dirigidas por eventos (EDA Event-driven Architectures) se
 basan en la detección, consumo y reacción a eventos.
@@ -37,7 +37,7 @@ Los eventos se transmiten entre sistema poco acoplados (“loosely coupled”) m
 * Bad, because No hay mucho soporte de recuperacón en caso de fallo parcial
 
 
-### Modelo-Vista-Controlador
+### Flyweight
 
 Modelo-vista-controlador (MVC) es un patrón de arquitectura de software, que separa los datos y la lógica de negocio de una aplicación de su representación y el módulo encargado de gestionar los eventos y las comunicaciones. Para ello MVC propone la construcción de tres componentes distintos que son el modelo, la vista y el controlador.
 
