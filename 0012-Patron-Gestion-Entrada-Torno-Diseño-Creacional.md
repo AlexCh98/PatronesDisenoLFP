@@ -1,6 +1,6 @@
 # Elección de patrón de diseño para la implementación de al gestión de entradas y tornos
 
-* Status: Pendiente 
+* Status: Decidida
 * Deciders: Lucas Gómez Torres
 * Date: 13-11-18 
 
