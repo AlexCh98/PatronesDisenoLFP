@@ -22,15 +22,12 @@ Chosen option: "Facade", because proporciona una interfaz simple para un subsist
 
 ### Facade
 
-El patrón viene motivado por la necesidad de estructurar un entorno de programación y reducir su complejidad con la división en subsistemas, minimizando las comunicaciones y dependencias entre éstos
+Se aplica el patrón fachada cuando se necesite proporcionar una interfaz simple para un subsistema complejo, o cuando se quiera estructurar varios subsistemas en capas, ya que las fachadas serían el punto de entrada a cada nivel.
 
-
-* Good, because Simplicidad
-* Good, because Modularidad, una sola modalidad para eventos diversos
-* Good, because Evolución, se pueden reemplazar componentes suscriptoses
-* Bad, because Posibilidad de desborde
-* Bad, because Pobre comprensibilidad
-* Bad, because No hay mucho soporte de recuperacón en caso de fallo parcial
+* Good, because Reduce la dependencia de los subsistemas.
+* Good, because Si cambia la respuesta podemos cambiar la fachada si cambiar la petición.
+* Good, because El cliente no necesita saber como implenta las respuestas.
+* Bad, because Si son subsistemas muy distintos puede necesitar varias fachadas lo que aumenta la complejidad.
 
 ### Flyweight
 
